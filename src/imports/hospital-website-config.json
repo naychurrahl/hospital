@@ -1,0 +1,234 @@
+hospital_website:
+  type: production-ready
+  purpose: informational
+  features:
+    - gallery
+    - blog
+
+  site_structure:
+    core_pages:
+      - path: /
+        name: home
+      - path: /about
+        name: about
+      - path: /services
+        name: services
+      - path: /doctors
+        name: doctors
+      - path: /gallery
+        name: gallery
+      - path: /blog
+        name: blog
+      - path: /contact
+        name: contact
+
+    optional_pages:
+      - /emergency
+      - /privacy-policy
+      - /terms
+
+  global_layout:
+    header:
+      - logo
+      - primary_navigation
+      - emergency_phone_highlight
+      - call_to_action_button
+    footer:
+      - quick_links
+      - contact_information
+      - opening_hours
+      - social_links
+      - copyright
+      - legal_links
+
+  pages:
+
+    home:
+      sections:
+        - hero:
+            elements:
+              - tagline
+              - mission_statement
+              - cta_buttons
+        - emergency_info_strip:
+            elements:
+              - phone_number
+              - directions
+        - about_preview:
+            elements:
+              - short_intro
+              - learn_more_button
+        - services_overview:
+            elements:
+              - key_departments
+              - service_links
+        - doctors_preview:
+            elements:
+              - featured_doctors
+              - link_to_doctors_page
+        - gallery_preview:
+            elements:
+              - image_grid
+              - link_to_gallery
+        - blog_preview:
+            elements:
+              - latest_posts
+        - testimonials
+
+    about:
+      sections:
+        - history
+        - mission_and_vision
+        - leadership
+        - certifications
+        - facility_overview
+
+    services:
+      list_page:
+        - cardiology
+        - neurology
+        - pediatrics
+        - emergency
+        - others
+
+      detail_page_structure:
+        route: /services/{service-name}
+        sections:
+          - overview
+          - conditions_treated
+          - procedures
+          - equipment
+          - related_doctors
+          - faq
+          - contact_cta
+
+    doctors:
+      list_page:
+        elements:
+          - photo
+          - name
+          - specialty
+          - short_bio
+
+      detail_page_structure:
+        route: /doctors/{doctor-name}
+        sections:
+          - full_bio
+          - education
+          - experience
+          - specializations
+          - certifications
+          - contact_cta
+
+    gallery:
+      filters:
+        - facilities
+        - equipment
+        - events
+        - staff
+      item_structure:
+        - image
+        - title
+        - description
+        - category
+      interaction:
+        - lightbox_view
+
+    blog:
+      main_page:
+        elements:
+          - featured_article
+          - post_list
+          - categories
+          - search_bar
+
+      post_structure:
+        route: /blog/{post-slug}
+        elements:
+          - title
+          - featured_image
+          - author
+          - publish_date
+          - content
+          - related_posts
+
+      categories:
+        - health_tips
+        - news
+        - research
+        - community
+
+    contact:
+      sections:
+        - contact_form
+        - map_embed
+        - phone_numbers
+        - department_contacts
+        - working_hours
+
+  data_models:
+
+    hospital:
+      fields:
+        - name
+        - tagline
+        - description
+        - address
+        - phone
+        - email
+
+    service:
+      fields:
+        - id
+        - name
+        - slug
+        - description
+        - department
+        - related_doctors
+
+    doctor:
+      fields:
+        - id
+        - name
+        - slug
+        - specialty
+        - bio
+        - image
+        - experience
+        - certifications
+
+    blog_post:
+      fields:
+        - id
+        - title
+        - slug
+        - content
+        - category
+        - author
+        - published_at
+        - featured_image
+
+    gallery_item:
+      fields:
+        - id
+        - title
+        - image
+        - category
+        - description
+
+  design_principles:
+    - clean_white_space
+    - soft_medical_color_palette
+    - high_contrast_accessibility
+    - clear_typography_hierarchy
+    - fast_load_speed
+    - mobile_first
+    - ada_compliance
+
+  scalability:
+    future_features:
+      - appointment_booking
+      - patient_portal
+      - online_payments
+      - live_chat
+      - multi_language_support
